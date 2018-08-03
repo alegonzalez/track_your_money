@@ -1,0 +1,12 @@
+.image-upload > input
+{
+    display: none;
+}
+.btnLoginFacebook{
+  background: #3A5795;
+  color: white;
+}
+.btnLoginTwitter{
+  background: #5EA9DD;
+  color: white;
+}

@@ -5,12 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header text-center">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                    <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" enctype="multipart/form-data">
                         @csrf
-
+                        <div class="image-upload offset-md-4">
+                            <label for="upload_image_profile">
+                                <img class="rounded-circle" id ="image_profile" src="icon/profile.png"/>
+                            </label>
+                            <input id="upload_image_profile" name="upload_image_profile" accept="image/*"  onchange="readURL(this);" type="file"/>
+                            @if ($errors->has('upload_image_profile'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('upload_image_profile') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
@@ -62,7 +72,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-5">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
@@ -74,4 +84,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scriptJs')
+<script type="text/javascript" src="js/authentication.js"></script>
 @endsection

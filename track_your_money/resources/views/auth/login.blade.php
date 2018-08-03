@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header text-center">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
@@ -62,6 +62,18 @@
                                 </a>
                             </div>
                         </div>
+                        <br>
+                          <br />
+                     <div class="form-group">
+                         <div class="col-md-8 offset-md-4">
+                           <a href="{{url('redirect/facebook')}}" class="btn btnLoginFacebook"><i class="fab fa-facebook"></i>&nbsp;Login with Facebook</a>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <div class="col-md-8 offset-md-4">
+                           <a href="{{url('redirect/twitter')}}" class="btn btnLoginTwitter"><i class="fab fa-twitter"></i>&nbsp;Login with Twitter</a>
+                         </div>
+                     </div>
                     </form>
                 </div>
             </div>
@@ -69,3 +81,16 @@
     </div>
 </div>
 @endsection
+
+<script>
+/*
+(function(d, s, id) {
+
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=2602776266614162&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+*/
+</script>

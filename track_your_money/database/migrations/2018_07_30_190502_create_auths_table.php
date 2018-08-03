@@ -15,7 +15,6 @@ class CreateAuthsTable extends Migration
     {
         Schema::create('auths', function (Blueprint $table) {
           $table->bigInteger('id');
-          $table->string('username');
           $table->string('service');
           $table->string('token');
           $table->integer('id_user');
