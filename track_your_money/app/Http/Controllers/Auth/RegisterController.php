@@ -65,7 +65,12 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
       if(isset($data['upload_image_profile'])){
+        $query = User::max('id');
+        $query += 1;
         $nameImage = $data['upload_image_profile']->getClientOriginalName();
+        $nameImage = app('App\Http\Controllers\UserController')->removeSpecialCharacter($nameImage);
+        $result = explode(".", $nameImage);
+        $nameImage = $result[0] . "_".$query  .".". $result[1];
         $data['upload_image_profile']->move(public_path('uploads'), $nameImage);
       }else{
         $nameImage = 'profile.png';
