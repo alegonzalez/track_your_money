@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/index';
 
     /**
      * Create a new controller instance.
@@ -68,7 +68,7 @@ class RegisterController extends Controller
         $nameImage = $data['upload_image_profile']->getClientOriginalName();
         $data['upload_image_profile']->move(public_path('uploads'), $nameImage);
       }else{
-        $nameImage = '';
+        $nameImage = 'profile.png';
       }
       return User::create([
             'name' => $data['name'],

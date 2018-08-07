@@ -51,7 +51,7 @@ class SocialAuthController extends Controller
       $user->image_profile = $result[0]->image_profile;
     }
     auth()->login($user);
-    return redirect()->to('/home');
+    return redirect()->to('/index');
   }
   /**
   * Return a callback method from twitter api.
@@ -69,7 +69,7 @@ class SocialAuthController extends Controller
      $user = new User();
      if(count($result) <=0 ){
        $user->name =  $socialite->name;
-       $user->email =  $socialite->nickname . "@gmail.com";
+       $user->email =  $socialite->nickname . "@track.com";
        $user->password = md5(rand(1,10000));
        $user->image_profile = $socialite->avatar_original;
        if($user->save()){
@@ -89,6 +89,6 @@ class SocialAuthController extends Controller
        $user->image_profile = $result[0]->image_profile;
      }
      auth()->login($user);
-     return redirect()->to('/home');
+     return redirect()->to('/index');
   }
 }
